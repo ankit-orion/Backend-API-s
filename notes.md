@@ -3,3 +3,10 @@
 ## after that we have to create our own script in the package.json file. This script will be used to run the project. We can do this by adding the following line to the scripts object in the package.json file:
 
 ```json
+
+## In case we have to handle cors we can use proxy in vite.config.js file that will be created in the root of the project. We can add the following line to the vite.config.js file:
+proxy will help us to avoid cors error also we can append api/localhost:3000 to the url to avoid cors error.
+    proxy:{
+      '/api': 'http://localhost:3000'
+    }
+```js
