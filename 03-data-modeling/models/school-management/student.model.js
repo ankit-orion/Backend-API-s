@@ -1,0 +1,75 @@
+import mongoose from "mongoose";
+
+const studentAddressSchema = new mongoose.Schema({
+    street:{
+        type:String,
+        required:true,
+    },
+    city:{
+        type:String,
+        required:true,
+    },
+    state:{
+        type:String,
+        required:true,
+    },
+    pinCode:{
+        type:String,
+        required:true,
+    },
+});
+const studentSchema = new mongoose.Schema({
+    name:{
+        type:String,
+        required:true,
+    },
+    age:{
+        type:Number,
+        required:true,
+    },
+    fatherName:{
+        type:String,
+        required:true,
+    },
+    motherName:{
+        type:String,
+        required:true,
+    },
+    guardianName:{
+        type:String,
+        required:true,
+    },
+    phoneNumer:{
+        type:String,
+        required:true,
+    },
+    fatherPhoneNumber:{
+        type:String,
+        required:true,
+    },
+    motherPhoneNumber:{
+        type:String,
+        required:true,
+    },
+    guardianPhoneNumber:{
+        type:String,
+        required:true,
+    },
+    email:{
+        type:String,
+        required:true,
+    },
+    address:{
+        type:"studentAddressSchema",
+        required:true,
+    },
+    busService:{
+        type:Boolean,
+        required:true,
+    },
+    bus:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"Bus",
+    }
+},{timestamps:true});
+export const Student = mongoose.model("Student", studentSchema);
