@@ -15,7 +15,7 @@ app.use(cors({
     // creadentials are false meaning that the server will not accept the cookies from the frontend
     credentials:true
 }));
-
+// 
 // if the request is in json format then it will be parsed by the express.json() middleware
 // if the request is in urlencoded format then it will be parsed by the express.urlencoded() middleware
 // if the request is in cookie format then it will be parsed by the cookieParser() middleware
