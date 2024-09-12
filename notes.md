@@ -9,4 +9,13 @@ proxy will help us to avoid cors error also we can append api/localhost:3000 to 
     proxy:{
       '/api': 'http://localhost:3000'
     }
+```
+
+we use multer for file upload in nodejs. Multer is a node.js middleware for handling multipart/form-data, which is primarily used for uploading files. It is written on top of busboy for maximum efficiency.
+
+multer takes the file and it stores locally in our server in the next step we take the file from local server to the cloudinary
+
+// if we want we can store it directly to the cloudinary
+but it is done for security purpose to avoid the direct upload to the cloudinary
+
 ```js
