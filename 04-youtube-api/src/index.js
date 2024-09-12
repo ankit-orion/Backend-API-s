@@ -12,7 +12,7 @@ connectDB()
         throw err;
     })
     app.get('/', (req, res)=>{
-        res.send('Hello application is running on port', process.env.PORT);
+        res.send(`'Hello application is running on port', ${process.env.PORT}`);
     })
 })
 .catch((err)=>{
