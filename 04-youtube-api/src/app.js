@@ -61,5 +61,4 @@ import userRouter from './routes/user.route.js';
 // here /api/v1/users is the prefix we do this to make the code more modular
 // if we want to change the prefix we can do it easily
 app.use("/api/v1/users", userRouter);
-
 export default app;
