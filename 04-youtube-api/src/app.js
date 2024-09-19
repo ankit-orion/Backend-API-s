@@ -51,4 +51,15 @@ app.use(express.static('public'));
 // it allow us to access and set the cookies in the request and response
 app.use(cookieParser())
 
+
+// importing routes
+import userRouter from './routes/user.route.js';
+
+// routes declaration
+// here this will be prefix for all the routes in the userRouter
+// url will be https://localhost:300/api/v1/users/register
+// here /api/v1/users is the prefix we do this to make the code more modular
+// if we want to change the prefix we can do it easily
+app.use("/api/v1/users", userRouter);
+
 export default app;
