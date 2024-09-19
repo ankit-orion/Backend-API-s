@@ -31,7 +31,7 @@ const registerUser = asyncHandler(async(req, res)=>{
     // another way of doing this is
     if(
         [fullName, email, username, password].some((field)=>
-        field?.trime()==="")
+        field?.trim()==="")
     ){
         throw new ApiError(400, "All fields are required")
     }
@@ -40,7 +40,7 @@ const registerUser = asyncHandler(async(req, res)=>{
     // here we are checking if the email or username is already registered
     // findOne will return the user object if found else null
     // $or is used to check if any of the condition is true
-    const existedUser = User.findOne({$or:[{email}, {username}]})
+    const existedUser = await User.findOne({$or:[{email}, {username}]})
     if(existedUser){
         throw new ApiError(409, "User already registered with this email or username")
     }
