@@ -48,12 +48,15 @@ const registerUser = asyncHandler(async(req, res)=>{
     // ?. is used to check if the object is not null or undefined
 
     const avatarLocalPath = req.files?.avatar[0]?.path;
+
     // since avatar is required so we check if it is present or not then accordingly throw error
     if(!avatarLocalPath){
         throw new ApiError(400, "Avatar is required")
     }
-    const coverImageLocalPath = req.files?.coverImage[0]?.path;
-
+    if(req.files && Array.isArray(req.files.coverImage) && req.files.coverImage.length>0){
+        const coverImageLocalPath = req.files.coverImage[0].path;
+    }
+    // if coverImage is not present then we will use empty string
     // upload the images to cloudinary
     const avatar = await uploadOnCloudinary(avatarLocalPath);
     const coverImage = await uploadOnCloudinary(coverImageLocalPath);
